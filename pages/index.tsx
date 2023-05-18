@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="w-full relative">
-      <div className="flex flex-col justify-items-stretch">
+      <div className="overflow-hideden flex flex-col justify-items-stretch">
         <MessageBubble
           walletHash={"0x12n1sajklnsd"}
           messageText="Hello how u doin ?"

@@ -4,7 +4,7 @@ import SendMessageButton from "./SendMessageButton";
 
 const MessageControls = () => {
   return (
-    <div className="absolute bottom-0 right-0 w-full flex flex-row">
+    <div className="absolute bottom-0 left-0 w-full flex flex-row m-5">
       <MessageInput />
       <SendMessageButton />
     </div>

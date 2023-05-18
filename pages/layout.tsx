@@ -10,12 +10,12 @@ const monserrat = Montserrat({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={monserrat.className}>
-      <body>
-        <div className="flex flex-row">
+      <body className="h-[90vh]">
+        <div className="flex flex-row h-full">
           <Sidebar />
-          <div className="w-full">
+          <div className="w-full h-full">
             <Navbar />
-            <div className="p-5 bg-gray-50 h-screen rounded-xl">{children}</div>
+            <div className="p-5 bg-gray-50 h-full rounded-xl">{children}</div>
           </div>
           {/* <Footer /> */}
         </div>
