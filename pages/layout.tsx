@@ -13,10 +13,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <div className="flex flex-row">
           <Sidebar />
-          <main className="w-full">
+          <div className="w-full">
             <Navbar />
-            <div className="p-5">{children}</div>
-          </main>
+            <div className="p-5 bg-gray-50 h-screen rounded-xl">{children}</div>
+          </div>
           {/* <Footer /> */}
         </div>
       </body>

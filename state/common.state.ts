@@ -9,3 +9,13 @@ export const activeChatAtom = atom(
     set(activeChat, chatId);
   }
 );
+
+// state for defining activeChat
+export const myWallet = atom<string | null>(null);
+
+export const myWalletAtomAtom = atom(
+  (get) => get(myWallet),
+  (get, set, walletHash: string) => {
+    set(myWallet, walletHash);
+  }
+);
