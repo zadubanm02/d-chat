@@ -1,15 +1,7 @@
-import { useAtom, useAtomValue } from "jotai";
+import { useAtomValue } from "jotai";
 import type { NextPage } from "next";
-import {
-  activeChatAtom,
-  myWallet,
-  myWalletAtomAtom,
-} from "../state/common.state";
+import { activeChatAtom } from "../state/common.state";
 import MessageBubble from "../components/MessageBubble";
-import { useWallet } from "@thirdweb-dev/react-core";
-import { useEffect } from "react";
-import { useMyWallet } from "../hooks/useWallet";
-import MessageControls from "../components/MessageControls";
 
 const Home: NextPage = () => {
   const activeChat = useAtomValue(activeChatAtom);
