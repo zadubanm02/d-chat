@@ -4,7 +4,7 @@ import NewMeesageDialog from "./NewMessageDialog";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col justify-between w-50 px-5 py-3 h-full">
+    <div className="flex flex-col justify-between w-50 px-5 pt-3 h-full col-span-3">
       <div>
         <h1 className="font-extrabold text-2xl mb-8">OG Connect</h1>
         <p className="font-bold text-xs">ALL MESSAGES</p>
@@ -12,6 +12,10 @@ const Sidebar = () => {
         <RecipientLine
           walletHash={"0x66635850Ee69A9d5A1b9EB4c4C73c05fBE23fC5f"}
           recentMessage="Hello"
+        />
+        <RecipientLine
+          walletHash={"0xE03D7Cb5E146e7F67c5da6BD81D7252B2D6Eea09"}
+          recentMessage="Whats uuuuup?"
         />
       </div>
       <div>

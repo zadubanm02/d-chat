@@ -9,7 +9,7 @@ type Props = {};
 const NewMeesageDialog: React.FC<Props> = () => (
   <Dialog.Root>
     <Dialog.Trigger asChild>
-      <button className="flex flex-row items-center align-middle justify-center p-2 mb-3 w-full border-2 border-solid border-gray-900 rounded-xl font-extrabold">
+      <button className="flex flex-row items-center align-middle justify-center p-2 w-full border-2 border-solid border-gray-900 rounded-xl font-extrabold">
         <PlusIcon
           className="mr-2 font-extrabold"
           stroke="#000"
