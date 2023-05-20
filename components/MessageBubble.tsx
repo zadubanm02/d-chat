@@ -16,11 +16,11 @@ const MessageBubble = ({
   };
   return (
     <span className={`flex flex-col my-3 ${getPlace()} w-auto max-w-md`}>
-      <p className="text-xs px-3 font-semibold">
+      <p className="text-xs px-3 font-extrabold">
         {checkAddresses(walletAddress ?? "", walletHash)}
       </p>
       <div
-        className={`flex flex-col justify-self-end p-3 m-2 bg-gray-200 rounded-xl max-w-md`}
+        className={`flex flex-col justify-self-end p-3 m-2 bg-gray-200 rounded-xl max-w-md font-semibold`}
       >
         {messageText}
       </div>

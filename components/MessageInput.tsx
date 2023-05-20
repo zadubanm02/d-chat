@@ -5,7 +5,7 @@ const MessageInput = () => {
     <input
       type="text"
       placeholder="Message..."
-      className="w-full p-2 rounded-xl mr-4 border border-solid border-gray-200"
+      className="w-full p-2 rounded-xl mr-4 border-2 border-solid border-gray-900"
     />
   );
 };

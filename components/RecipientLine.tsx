@@ -18,10 +18,10 @@ const RecipientLine: React.FC<Props> = ({ walletHash, recentMessage }) => {
   return (
     <div
       onClick={() => handleChat()}
-      className="p-2 my-2 border border-solid border-gray-300 rounded-xl cursor-pointer"
+      className="p-2 my-2 border-2 border-solid border-gray-900 rounded-xl cursor-pointer"
     >
-      <h3 className="font-bold">{stripWalletHash(walletHash)}</h3>
-      <p className="px-2 text-xs">{recentMessage}</p>
+      <h3 className="font-extrabold">{stripWalletHash(walletHash)}</h3>
+      <p className="px-2 text-xs font-bold">{recentMessage}</p>
     </div>
   );
 };
