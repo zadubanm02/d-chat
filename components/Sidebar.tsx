@@ -17,6 +17,10 @@ const Sidebar = () => {
           walletHash={"0xE03D7Cb5E146e7F67c5da6BD81D7252B2D6Eea09"}
           recentMessage="Whats uuuuup?"
         />
+        <RecipientLine
+          walletHash="0x2e552E3aD9f7446e9caB378c008315E0C26c0398"
+          recentMessage="BSC Address"
+        />
       </div>
       <div>
         <NewMeesageDialog />
