@@ -9,6 +9,8 @@ export const checkAddresses = (myAddress: string, address: string) => {
 };
 
 export const getImage = (data: MoralisDataObjectValue | undefined) => {
-  const jsonData = JSON.parse(JSON.stringify(data as unknown as string));
-  return jsonData.image;
+  if (data) {
+    const jsonData = JSON.parse(JSON.stringify(data as unknown as string));
+    return jsonData.image;
+  }
 };

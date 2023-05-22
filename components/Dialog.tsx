@@ -18,7 +18,7 @@ const Modal: React.FC<Props> = ({ wallet }) => {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className="p-2 mb-3 border-2 border-solid border-gray-900 rounded-xl font-extrabold">
-          {ensName?.result.name ?? wallet ?? ""}
+          {ensName ?? wallet ?? "SomeAddress"}
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
@@ -31,16 +31,17 @@ const Modal: React.FC<Props> = ({ wallet }) => {
             Collectibles owned
           </Dialog.Description>
           <fieldset className="mb-[15px] flex items-center gap-5 overflow-x-auto flex-shrink-0">
-            {data?.result.map((nft) => {
-              return (
-                <CollectibleItem
-                  key={nft.tokenId}
-                  name={nft.name ?? nft.symbol ?? ""}
-                  imageUrl={getImage(nft.metadata)}
-                  collectionName={nft.symbol}
-                />
-              );
-            })}
+            {data &&
+              data?.result.map((nft) => {
+                return (
+                  <CollectibleItem
+                    key={nft.tokenId}
+                    name={nft.name ?? nft.symbol ?? ""}
+                    imageUrl={getImage(nft.metadata)}
+                    collectionName={nft.symbol}
+                  />
+                );
+              })}
             {/* <CollectibleItem
               name="Nakamigos #1715"
               imageUrl="https://i.seadn.io/gcs/files/a4e51d4a3c04e37b8ed0ed5a78785e7b.png?auto=format&dpr=1&w=1000"

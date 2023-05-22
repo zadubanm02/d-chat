@@ -16,6 +16,9 @@ const useNFTData = () => {
   const [data, setData] = useState<GetWalletNFTsResponseAdapter | null>(null);
 
   const getData = async () => {
+    if (selectedAddress === "something") {
+      return;
+    }
     console.log("Getting Data");
     console.log("Active chain", activeChain);
     try {

@@ -1,47 +1,30 @@
 import React, { useEffect, useState } from "react";
-import Moralis from "moralis";
-import {
-  EvmAddressInput,
-  EvmChain,
-  GetWalletNFTsResponseAdapter,
-  ResolveAddressResponseAdapter,
-} from "@moralisweb3/common-evm-utils";
 import { useAtomValue } from "jotai";
 import { activeChatAtom } from "../state/common.state";
 import { useActiveChain } from "@thirdweb-dev/react-core";
-import { SpaceIDResponse, getSpaceIdENS } from "../adapters/spaceId";
+import { providers } from "ethers";
+import SID, { getSidAddress } from "@siddomains/sidjs";
 
 const useENSName = () => {
-  const chain = EvmChain.ETHEREUM;
   const activeChain = useActiveChain();
 
   const selectedAddress = useAtomValue(activeChatAtom);
-  const [data, setData] = useState<
-    ResolveAddressResponseAdapter | SpaceIDResponse | null
-  >(null);
+  const [data, setData] = useState<string | null>(null);
 
-  const getETHENS = async () => {
-    console.log("Getting Data");
-    try {
-      const response = await Moralis.EvmApi.resolve.resolveAddress({
-        address: selectedAddress as EvmAddressInput,
-      });
-      console.log("RESPONSE", response);
-      setData(response);
-    } catch (error) {
-      console.log("ERROR", error);
-    }
-  };
-
-  const getSpaceENS = async () => {
-    try {
-      const result = await getSpaceIdENS(
-        activeChain?.chain.toLowerCase() ?? "",
-        selectedAddress ?? ""
-      );
-      setData(result);
-    } catch (error) {
-      console.log("Error", error);
+  const getSpaceIdENS = async () => {
+    if (typeof window.ethereum !== "undefined") {
+      try {
+        const provider = new providers.Web3Provider(window.ethereum);
+        const sid = new SID({
+          provider,
+          sidAddress: getSidAddress(activeChain?.chainId),
+        });
+        const name = await sid.getName(selectedAddress); // 0x123
+        console.log("name", name);
+        setData(name.name);
+      } catch (error) {
+        console.log("Error", error);
+      }
     }
   };
 
@@ -49,12 +32,13 @@ const useENSName = () => {
     console.log("Activechain", activeChain);
     if (activeChain === undefined) {
     } else if (activeChain.slug.toLowerCase() === "ethereum") {
-      getETHENS();
+      // getETHENS();
+      getSpaceIdENS();
     } else if (
       activeChain.chain.toLowerCase() == "bsc" ||
       activeChain.chain.toLowerCase() == "arb1"
     ) {
-      getSpaceENS();
+      getSpaceIdENS();
     } else {
       console.log("No active Chain");
     }
